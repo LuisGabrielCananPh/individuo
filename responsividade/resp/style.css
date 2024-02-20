@@ -1,0 +1,106 @@
+@import url(styles/header.css);
+:root{
+    --cor-de-fundo:rgb(0, 255, 255);
+    --cor-cab:rgba(255, 255, 255, 0.655);
+    border-color: yellow;
+    
+}
+
+body{
+    background-color: var(--cor-de-fundo);
+}
+#div2{
+    background-color: rgba(245, 245, 245, 0.655);
+    border: 5px;
+    border-style: dotted;
+    border-color: yellow;
+    align-items:center;
+    height: 690px;
+    width: 280px;
+}
+#div2a{
+    background-color: rgba(245, 245, 245, 0.655);
+    border: 5px;
+    border-style: dotted;
+    border-color: yellow;
+    height:auto;
+    width: 270px;
+    margin-top: 30%;
+    
+}
+#div2b{
+    background-color: rgba(245, 245, 245, 0.655);
+    border: 5px;
+    border-style: dotted;
+    border-color: yellow;
+    height:auto;
+    width: 270px;
+    margin-top: 30%;
+}
+#div2c{
+    background-color: rgba(245, 245, 245, 0.655);
+    border: 5px;
+    border-style: dotted;
+    border-color: yellow;
+    height:auto;
+    width: 270px;
+    margin-top: 30%;
+    
+    
+}
+#div3{
+    background-color: gray;
+    position: fixed;
+    bottom: 0px;
+    display:flex;
+    width: 1000%;
+}
+#capi{
+    height:690px;
+    width:690px;
+    margin-right: 0px;
+}
+#borda{
+    width:500px;
+    margin-left: 35%;
+}
+#div2f{
+    background-color: rgba(245, 245, 245, 0.655);
+    display:list-item;
+    align-items:center;
+    border: 5px;
+    border-style: dotted;
+    border-color:  yellow;
+    margin-top: 10px;
+    text-align: center;
+}
+#div2g{
+    background-color: rgba(245, 245, 245, 0.655);
+    display:list-item;
+    align-items:center;
+    border: 5px;
+    border-style: dotted;
+    border-color:  yellow;
+    margin-top: -350px;
+    margin-left:1000px;
+    text-align: center;
+}
+#produto{
+    height:100px;
+    width:100px;
+}
+#pro{
+    background-color: rgba(245, 245, 245, 0.655);
+    border: 5px;
+    border-style: dotted;
+    border-color: yellow;
+}
+#setup{
+    height:680px;
+    width:680px;
+    margin-right: 0px;
+}
+
+
+
+

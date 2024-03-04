@@ -6,7 +6,7 @@
     display:flex;
     align-items:center;
     border: 5px;
-    border-style: dotted;
+    border-style:double;
     border-color:  yellow;
 }
 .cab_img, .cab_tit, .cab_slogan{

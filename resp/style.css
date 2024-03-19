@@ -1,0 +1,161 @@
+@import url(styles/header.css);
+:root{
+    --cor-de-fundo:rgb(0, 255, 255);
+    --cor-cab:rgb(172, 255, 244);
+    border-color: yellow;
+    
+}
+
+body{
+    /*background-color: var(--cor-de-fundo);*/
+    background-image: url(img/background.jpg);
+}
+#div2{
+    background-color: rgba(172, 255, 244);
+    border: 5px;
+    border-style:double;
+    border-color:  yellow;
+    align-items:center;
+    height: 690px;
+    width: 280px;
+}
+#div2a{
+    background-color: rgba(172, 255, 244);
+    border: 5px;
+    border-style:double;
+    border-color:  yellow;
+    height:auto;
+    width: 270px;
+    margin-top: 30%;
+    
+}
+#div2b{
+    background-color: rgba(172, 255, 244);
+    border: 5px;
+    border-style:double;
+    border-color:  yellow;
+    height:auto;
+    width: 270px;
+    margin-top: 30%;
+}
+
+#div2c{
+    background-color: rgba(172, 255, 244);
+    border: 5px;
+    border-style:double;
+    border-color:  yellow;
+    height:auto;
+    width: 270px;
+    margin-top: 30%;
+    
+    
+}
+#div2f{
+    background-color: rgba(172, 255, 244, 0.459);
+    display:list-item;
+    align-items:center;
+    border: 5px;
+    border-style:double;
+    border-color:  yellow;
+    margin-top: 10px;
+    text-align: center;
+}
+#div2g{
+    background-color: rgba(172, 255, 244);
+    display:list-item;
+    align-items:center;
+    border: 5px;
+    border-style:double;
+    border-color:  yellow;
+    margin-top: -350px;
+    margin-left:930px;
+    text-align: center;
+}
+#divgb{
+    text-align: center;
+    height: 50px;
+    width: 150px;
+}
+#div2h{
+    background-color: rgba(172, 255, 244);
+    
+    border: 5px;
+    border-style:double;
+    border-color:  yellow;
+    margin-top: 10px;
+    
+}
+#div3{
+    background-color: gray;
+    position: fixed;
+    bottom: 0px;
+    display:flex;
+    width: 1000%;
+}
+#capi{
+    height:690px;
+    width:690px;
+    margin-right: 0px;
+}
+#borda{
+    width:500px;
+    margin-left: 35%;
+    border-style:double;
+    border-color:  yellow;
+    background-color: rgba(255, 255, 255, 0.545);
+}
+#produto{
+    height:100px;
+    width:100px;
+}
+#pro{
+    background-color: rgba(172, 255, 244);
+    border: 5px;
+    border-style:double;
+    border-color:  yellow;
+    
+}
+#setup{
+    height:680px;
+    width:680px;
+    margin-right: 0px;
+}
+#demo{
+    height:450px;
+    width:450px;
+    margin-left: 0px;
+}
+#tab2{
+    margin-left: 50px;
+    border: 5px;
+    
+}
+#info{
+    margin-left: 50px;
+    border: 5px;
+    border-style:double;
+    border-color:  yellow;
+    
+}
+#demoimg{
+    margin-right: 50px;
+    border: 5px;
+    border-style:double;
+    border-color:  yellow;
+    align-items: normal;
+}
+#name{
+    margin-bottom: 00px;
+    height:50px;
+    width:250px;
+    border: 5px;
+    border-style:double;
+    border-color: rgba(0, 0, 0, 0.545);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.545);
+}
+#opcoes{
+    margin-bottom: 375px;
+    align-items: baseline;
+    background-color: rgba(255, 255, 255, 0.545);
+}

@@ -1,3 +1,16 @@
+<?php
+$dbHost = 'Localhost';
+    $dbUsername = 'root';
+    $dbPassword = 'escola';
+    $dbName = 'projeto do pc';
+   
+    $conexao = new mysqli($dbHost, $dbUsername,$ dbPassword, $dbName);
+
+    $sql = mysqli-query($conexao,"select * from computador")
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,51 +27,54 @@
             <img src="img/individuo.png" alt="" class="cab_img">
             <h1 class="cab_tit">individeo gamer
             </h1>
-            <P class="cab_slogan">bem vindo
-            </P>
+            <P class="cab_slogan">bem vindo </P>
+            <div>
+            <a href="pag.php"><button id="divgb">carrinho</button></a>
             </div>
-        </header>
+        </div>
+       
+    </header>
         <div id="div2f">
             <table id="tab">
                 <tr id="tr">
                     <td>
                     <div>
                 <td id="pro">        
-                <a href="pc.html">
+                <a href="pc.php">
                     <font color="white">PC</font><br>
                     <img src="img/pc.jpeg" id="produto">
                 </a>
                     </td>
                 <td id="pro">
-                    <a href="monitor.html">
+                    <a href="monitor.php">
                     <font color="white">MONITOR</font>f><br>
                     <img src="img/monitor.jpeg" id="produto">
                     </td>
                 <td id="pro">        
-                    <a href="mouse.html">
+                    <a href="mouse.php">
                     <font color="white">MOUSE<br>
                     <img src="img/mouse.jpeg" id="produto">
                     </td>
                 <td id="pro">        
-                    <a href="teclado.html">
+                    <a href="teclado.php">
                     <font color="white">TECLADO</font><br>
                     <img src="img/teclado.png" id="produto">
                     </td>
                 <td id="pro">        
-                    <a href="headset.html">
+                    <a href="headset.php">
                     <font color="white">HEADSET</font><br>
                     <img src="img/headset.jpg" id="produto">
-                    </td>
-                    <td id="div2g">        
-                        <a href="pag.html"><button id="divgb">carrinho</button></a>
-                        </td>
+                </td>
+                    
             </div>
         </td>
             </tr>
             </table> 
         </div>
-        <div id="div3">
-            |Luis Gabriel C. Ph.|n°14|<br>|Arthur Bertolini|n°4|<br>|Adrian Phellipe S Rhoden|n°2|<br>|3° dev. sist.|colegio prof. victorio|<font color="gray"> por favor me ajuda</font>
-                </div>
+        <footer>
+            <div id="div3">
+                |Luis Gabriel C. Ph.|n°14|<br>|Arthur Bertolini|n°4|<br>|Adrian Phellipe S Rhoden|n°2|<br>|3° dev. sist.|colegio prof. victorio|<font color="gray"> por favor me ajuda</font>
+            </div>
+        </footer>
 </body>
 </html>

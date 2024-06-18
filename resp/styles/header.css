@@ -1,5 +1,7 @@
 .cabecalho{
     background-color: var(--cor-cab);
+    display:flex;
+    width: 100%;
     
 }
 .fiotao{
@@ -8,7 +10,8 @@
     border: 5px;
     border-style:double;
     border-color:  yellow;
-   
+    width: 100%;
+    justify-content: space-around;
     
 }
 .cab_img, .cab_tit, .cab_slogan{

@@ -1,3 +1,16 @@
+<?php
+$dbHost = 'Localhost';
+    $dbUsername = 'root';
+    $dbPassword = 'escola';
+    $dbName = 'projeto do pc';
+   
+    $conexao = new mysqli($dbHost, $dbUsername,$ dbPassword, $dbName);
+
+    $sql = mysqli-query($conexao,"select * from computador")
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +23,7 @@
 <body>
     <header class="cabecalho">
         <div class="fiotao">
-            <a href="form3.html"><button>voltar</button></a>
+            <a href="form3.php"><button>voltar</button></a>
             <br>
             <img src="img/individuo.png" alt="" class="cab_img">
             <h1 class="cab_tit">individeo gamer

@@ -4,11 +4,19 @@
     --cor-cab:rgb(0, 0, 255);
     border-color: yellow;
     
+    
 }
 
 body{
     /*background-color: var(--cor-de-fundo);*/
-    background-image: url(img/background.jpg);
+    background: url(img/background.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+    
+   
+}
+p{
+    color:azure;
 }
 #div1{
     font-style:inherit;
@@ -24,7 +32,7 @@ body{
     width: 280px;
 }
 #div2a{
-    background-color:rgb(0, 0, 255);
+    background-color:rgb(0, 0, 255); 
     border: 5px;
     border-style:double;
     border-color:  yellow;
@@ -32,7 +40,9 @@ body{
     width: 270px;
     margin-top: 30%;
     
+    
 }
+
 #div2b{
     background-color:rgb(0, 0, 255);
     border: 5px;
@@ -56,8 +66,7 @@ body{
 }
 #div2f{
     background-color:rgb(0, 0, 255);
-    
-    
+      
     border: 5px;
     border-style:double;
     border-color:  yellow;
@@ -91,10 +100,18 @@ body{
 }
 #div3{
     background-color: gray;
-    position: fixed;
+    margin: 2px;
     bottom: 0px;
     display:flex;
-    width: 1000%;
+    width: 100%;
+    color: rgb(236, 236, 225);
+    align-items:center;
+    border: 5px;
+    border-style:double;
+    border-color:  yellow;
+   
+    
+
 }
 #capi{
     height:690px;
@@ -118,7 +135,7 @@ body{
     border-style:double;
     border-color:  yellow;
     height:100px;
-    width:100px
+    width:20%
 }
 #setup{
     height:680px;
@@ -133,7 +150,8 @@ body{
 #tab{
     height:450px;
     border: 5px;
-    align-items:center;  
+    align-items:center; 
+    width: 100%; 
 }
 #tab2{
     margin-left: 50px;
@@ -177,7 +195,10 @@ body{
 #opcoes{
     margin-top: 3px;
     align-items: baseline;
-    
+    background-color: rgba(255, 255, 255, 0.545);
+    border: 2px;
+    border-style:solid;
+    border-color:  yellow;   
 }
 #itens{
     background-color: rgba(255, 255, 255, 0.545);

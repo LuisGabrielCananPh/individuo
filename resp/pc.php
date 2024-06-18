@@ -10,7 +10,7 @@
 <body>
     <header class="cabecalho">
         <div class="fiotao">
-            <a href="form3.html"><button>voltar</button></a>
+            <a href="form3.php"><button>voltar</button></a>
             <br>
             <img src="img/individuo.png" alt="" class="cab_img">
             <h1 class="cab_tit">individio gamer

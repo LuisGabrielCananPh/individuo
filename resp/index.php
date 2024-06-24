@@ -2,15 +2,12 @@
 $dbHost = 'Localhost';
     $dbUsername = 'root';
     $dbPassword = 'escola';
-    $dbName = 'projeto do pc';
+    $dbName = 'projeto pc';
    
-    $conexao = new mysqli($dbHost, $dbUsername,$ dbPassword, $dbName);
-
-    $sql = mysqli-query($conexao,"select * from computador")
-
-
+    $conexao = new mysqli($dbHost,$dbUsername,$dbPassword,$dbName);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

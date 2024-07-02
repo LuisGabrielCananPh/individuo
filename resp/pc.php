@@ -1,3 +1,36 @@
+<?php
+
+if(isset($_POST['submit']))
+{
+    // print_r('Nome: ' . $_POST['nome']);
+    // print_r('<br>');
+    // print_r('Email: ' . $_POST['email']);
+    // print_r('<br>');
+    // print_r('Telefone: ' . $_POST['telefone']);
+    // print_r('<br>');
+    // print_r('Sexo: ' . $_POST['genero']);
+    // print_r('<br>');
+    // print_r('Data de nascimento: ' . $_POST['data_nascimento']);
+    // print_r('<br>');
+    // print_r('Endereço: ' . $_POST['endereco']);
+
+    include_once('config.php');
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $telefone = $_POST['telefone'];
+    $sexo = $_POST['genero'];
+    $data_nasc = $_POST['data_nascimento'];
+    $endereco = $_POST['endereco'];
+
+    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,telefone,sexo,data_nasc,endereco) 
+    VALUES ('$nome','$senha','$email','$telefone','$sexo','$data_nasc','$endereco')");
+
+    header('Location: login.php');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,6 +168,7 @@
             </td>
         </tr>
     </table>
+
 </div> 
 <div id="div3">
     |Luis Gabriel C. Ph.|n°14|<br>|Arthur Bertolini|n°4|<br>|Adrian Phellipe S Rhoden|n°2|<br>|3° dev. sist.|colegio prof. victorio|<font color="gray"> por favor me ajuda</font>

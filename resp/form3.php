@@ -1,14 +1,45 @@
 <?php
-$dbHost = 'Localhost';
-    $dbUsername = 'root';
-    $dbPassword = 'escola';
-    $dbName = 'projeto do pc';
-   
-    $conexao = new mysqli($dbHost, $dbUsername,$ dbPassword, $dbName);
+include_once('config.php');
 
-    $sql = mysqli-query($conexao,"select * from computador")
+// Checkar conexão
+if ($conexao->connect_error) {
+    die("Erro de conexão com o banco de dados: " . $conexao->connect_error);
+}
 
+// Receber dados do formulário
+if (isset($_POST['nome'] )  && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['telefone']) && isset($_POST['genero']) && isset($_POST['data_nascimento']) && isset($_POST['endereco'])) {
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $telefone = $_POST['telefone'];
+    $genero = $_POST['genero'];
+    $data_nasc = $_POST['data_nascimento'];
+    $endereco = $_POST['endereco'];
+} else {
+    echo "Erro: Dados do formulário não enviados corretamente.";
+}
 
+// Verificar se o e-mail já existe
+$sql_verifica_email = "SELECT COUNT(*) FROM usuarios WHERE email = '$email'";
+$resultado_verifica = $conexao->query($sql_verifica_email);
+
+if ($resultado_verifica->fetch_row()[0] > 0) {
+    echo "Erro: E-mail já cadastrado. Tente outro e-mail.";
+} else {
+    // Se o e-mail não existir, prosseguir com a inserção
+    $sql = "INSERT INTO usuarios (nome, email, senha, email, telefone, genero, data_nascimento) VALUES ('$nome','$senha','$email','$telefone','$genero','$data_nasc','$endereco')";
+
+    if ($conexao->query($sql) === TRUE) {
+        echo "Usuário cadastrado com sucesso!";
+    } else {
+        echo "Erro ao cadastrar o usuário: " . $conexao->error;
+    }
+}
+
+$conexao->close();
+
+    
+?>
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +54,7 @@ $dbHost = 'Localhost';
 <body>
     <header class="cabecalho">
         <div class="fiotao">
-            <a href="index.html">voltar</a>
+            <a href="index.php">voltar</a>
             <img src="img/individuo.png" alt="" class="cab_img">
             <h1 class="cab_tit">individeo gamer
             </h1>

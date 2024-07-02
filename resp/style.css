@@ -8,7 +8,7 @@
 }
 
 body{
-    /*background-color: var(--cor-de-fundo);*/
+    background-color : var(--cor-de-fundo);
     background: url(img/background.jpg);
     background-size:cover;
     background-repeat:no-repeat;
@@ -66,13 +66,22 @@ p{
 }
 #div2f{
     background-color:rgb(0, 0, 255);
-      
     border: 5px;
     border-style:double;
     border-color:  yellow;
     margin-top: 10px;
-    text-align: center;
+    
 }
+fieldset{
+    display: flex;
+    flex-direction: column;
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+
 #div2g{
     background-color:rgb(0, 0, 255);
     display:list-item;

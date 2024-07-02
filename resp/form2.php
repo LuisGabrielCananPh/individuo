@@ -2,13 +2,44 @@
 $dbHost = 'Localhost';
     $dbUsername = 'root';
     $dbPassword = 'escola';
-    $dbName = 'projeto do pc';
+    $dbName = 'projeto pc';
    
-    $conexao = new mysqli($dbHost, $dbUsername,$ dbPassword, $dbName);
+    $conexao = new mysqli($dbHost,$dbUsername,$dbPassword,$dbName);
 
-    $sql = mysqli-query($conexao,"select * from computador")
+?>
+<?php
 
+if(isset($_POST['submit']))
+{
+    // print_r('Nome: ' . $_POST['nome']);
+    // print_r('<br>');
+    // print_r('Email: ' . $_POST['email']);
+    // print_r('<br>');
+    // print_r('Telefone: ' . $_POST['telefone']);
+    // print_r('<br>');
+    // print_r('Sexo: ' . $_POST['genero']);
+    // print_r('<br>');
+    // print_r('Data de nascimento: ' . $_POST['data_nascimento']);
+    // print_r('<br>');
+    // print_r('Endereço: ' . $_POST['endereco']);
 
+    include_once('config.php');
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $telefone = $_POST['telefone'];
+    $sexo = $_POST['genero'];
+    $data_nasc = $_POST['data_nascimento'];
+    $endereco = $_POST['endereco'];
+
+    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,telefone,sexo,data_nasc,endereco) 
+    VALUES ('$nome','$senha','$email','$telefone','$sexo','$data_nasc','$endereco')");
+
+    header('Location: login.php');
+}
+
+?>
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +70,7 @@ $dbHost = 'Localhost';
     <label>insira sua senha</label><br>
     <input type="text" placeholder="sua senha"><br>
     <label>tudo pronto? então envie para gente</label><br>
-    <a href="form3.html"><button>enviar</button></a><br>
+    <a href="form3.php"><button>enviar</button></a><br>
     </fieldset><br>
     </div>
     <div id="div3">

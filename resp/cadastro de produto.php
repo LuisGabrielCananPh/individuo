@@ -1,3 +1,42 @@
+<?php
+
+include_once('config.php');
+
+   // Checkar conexão
+   if ($conexao->connect_error) {
+    die("Erro de conexão com o banco de dados: " . $conexao->connect_error);
+}
+     
+
+// Receber dados do formulário
+if (
+    isset($_POST['nome']) && isset($_POST['ID']) && isset($_POST['cpf']) &&
+    isset($_POST['data de entrada no estoque']) && isset($_POST['email']) &&
+    isset($_POST[''])
+) {
+    $nome = $_POST['nome'];
+    $cpf = $_POST['cpf'];
+    $data_nascimento = $_POST['data de entrada no estoque'];
+    $email = $_POST['email'];
+    $senha = $_POST[''];
+
+
+    // Preparar e executar a inserção dos dados
+    $sql = "INSERT INTO usuarios (nome, cpf, cep, data_nascimento, email, senha) VALUES ('$nome', '$cpf', '$cep', '$data_nascimento', '$email', '$senha')";
+
+    if ($conexao->query($sql) === TRUE) {
+        echo "Usuário cadastrado com sucesso!";
+    } else {
+        echo "Erro ao cadastrar o usuário: " . $conexao->error;
+    }
+} else {
+    echo "Erro: Dados do formulário não enviados corretamente.";
+}
+
+$conexao->close();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,9 +63,6 @@
                   <input type="text" id="ID" name="ID" placeholder="000.000.000.000" inputmode="numeric" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}" required>
                   <br>
                   <label for="data_nascimento">Data de Entrada no estoque:</label>
-                  <input type="date" id="data_nascimento" name="data_nascimento" required>
-                  <br>
-                  <label for="data_nascimento">Data de saida do estoque:</label>
                   <input type="date" id="data_nascimento" name="data_nascimento" required>
                   <br>
                   <label for="email">E-mail:</label>

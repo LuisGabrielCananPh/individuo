@@ -10,24 +10,26 @@ include_once('config.php');
 
 // Receber dados do formulário
 if (
-    isset($_POST['nome']) && isset($_POST['ID']) && isset($_POST['cpf']) &&
-    isset($_POST['data de entrada no estoque']) && isset($_POST['email']) &&
-    isset($_POST[''])
+    isset($_POST['id']) && isset($_POST['nome']) && isset($_POST['tipo']) &&
+    isset($_POST['marca']) && isset($_POST['descricao']) &&isset($_POST['preco'])
+    &&isset($_POST['disponibilidade'])
 ) {
+    $id = $_POST['id'];
     $nome = $_POST['nome'];
-    $cpf = $_POST['cpf'];
-    $data_nascimento = $_POST['data de entrada no estoque'];
-    $email = $_POST['email'];
-    $senha = $_POST[''];
+    $tipo = $_POST['tipo'];
+    $marca = $_POST['marca'];
+    $descricao = $_POST['descricao'];
+    $preco = $_POST['preco'];
+    $disponibilidade = $_POST['disponibiidade'];
 
 
     // Preparar e executar a inserção dos dados
-    $sql = "INSERT INTO usuarios (nome, cpf, cep, data_nascimento, email, senha) VALUES ('$nome', '$cpf', '$cep', '$data_nascimento', '$email', '$senha')";
+    $sql = "INSERT INTO computador (id, nome, tipo, marca, descricao, preco, disponibilidade) VALUES ('$id', '$nome', '$tipo', '$marca', '$descricao', '$spreco', '$disponibilidade')";
 
     if ($conexao->query($sql) === TRUE) {
-        echo "Usuário cadastrado com sucesso!";
+        echo "maquina cadastrada com sucesso!";
     } else {
-        echo "Erro ao cadastrar o usuário: " . $conexao->error;
+        echo "Erro ao cadastrar a maquina: " . $conexao->error;
     }
 } else {
     echo "Erro: Dados do formulário não enviados corretamente.";
@@ -49,34 +51,33 @@ $conexao->close();
 <div id="div2f"><br>
         
         <main>
-            <form id="formulario-cadastro" action="form.php" method="post">
+            <form id="formulario-cadastro" action="computador" method="post">
               <fieldset id="borda">
                 <legend id="title">Cadastro de produto</legend>
          
                 <div class="secao-contato">
-                  <label for="ID produto">ID :</label>
+                  <label for="id produto">id :</label>
                   <input type="number" id="ID" name="ID" placeholder="000.000.000.000" inputmode="numeric" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}" required>
                   <br>
                   <label for="nome">nome:</label>
-                  <input type="text" id="nome" name="nome" required>
+                  <input type="text" id="nome" name="nome" placeholder = nome required>
                   <br>
                   <label for="tipo">tipo:</label>
-                  <input type="tipo" id="tipo" name="tipo" placeholder="tipo" required>
+                  <input type="text" id="tipo" name="tipo" placeholder="tipo" required>
                 <br>
                 <label for="marca">marca:</label>
-                  <input type="text" id="marca" name="marca" required>
+                  <input type="text" id="marca" name="marca" placeholder= marca required>
                   <br>
                 <label for="descricao">descricao:</label>
-                  <input type="text" id="descricao" name="descricao" required>
+                  <input type="text" id="descricao" name="descricao"placeholder=descricao required>
                   <br>
                   <label for="preco">preco:</label>
-                  <input type="number" id="preco" name="preco" required>
+                  <input type="number" id="preco" name="preco" placeholder= preco required>
                   <br>
                   <label for="disponibilidade">disponibilidade:</label>
-                  <input type="text" id="preco" name="disponibilidade" required>
+                  <input type="number" id="preco" name="disponibilidade" placeholder=disponibilidade required>
                 </div>
-        
-                <button type="submit" class="botao-enviar">Cadastrar produto</button>
+                <button type="submit" class="botao-enviar">Cadastrar produto</a>
               </fieldset>
             </form>
 </body>

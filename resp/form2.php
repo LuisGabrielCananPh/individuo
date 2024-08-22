@@ -26,13 +26,11 @@ if(isset($_POST['submit']))
     include_once('config.php');
 
     $nome = $_POST['nome'];
-    $telefone = $_POST['telefone'];
-    $cep = $_POST['cep'];
-    $cpf = $_POST['cpf'];
-    $data_nasc = $_POST['data_nascimento'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
+    $telefone = $_POST['telefone'];
     $sexo = $_POST['genero'];
+    $data_nasc = $_POST['data_nascimento'];
     $endereco = $_POST['endereco'];
 
     $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,telefone,sexo,data_nasc,endereco) 

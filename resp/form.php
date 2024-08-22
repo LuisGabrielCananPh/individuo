@@ -102,7 +102,6 @@ $conexao->close();
                 </div>
         
                 <button type="submit" class="botao-enviar">Criar Conta</button>
-                <a href="form3.php"><button></button></a><br>
               </fieldset>
             </form>
         

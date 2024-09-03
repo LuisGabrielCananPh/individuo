@@ -2,7 +2,7 @@
 $dbHost = 'Localhost';
     $dbUsername = 'root';
     $dbPassword = 'escola';
-    $dbName = 'projeto pc';
+    $dbName = 'projeto_pc';
    
     $conexao = new mysqli($dbHost,$dbUsername,$dbPassword,$dbName);
 

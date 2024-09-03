@@ -1,46 +1,28 @@
 <?php
-$dbHost = 'Localhost';
-    $dbUsername = 'root';
-    $dbPassword = 'escola';
-    $dbName = 'projeto pc';
-   
-    $conexao = new mysqli($dbHost,$dbUsername,$dbPassword,$dbName);
+include_once('config.php');
 
-?>
-<?php
+// Verifica se houve um envio de formulário
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // Recebe os dados do formulário
+  $email = $_POST["email"];
+  $senha = $_POST["senha"];
 
-if(isset($_POST['submit']))
-{
-    // print_r('Nome: ' . $_POST['nome']);
-    // print_r('<br>');
-    // print_r('Email: ' . $_POST['email']);
-    // print_r('<br>');
-    // print_r('Telefone: ' . $_POST['telefone']);
-    // print_r('<br>');
-    // print_r('Sexo: ' . $_POST['genero']);
-    // print_r('<br>');
-    // print_r('Data de nascimento: ' . $_POST['data_nascimento']);
-    // print_r('<br>');
-    // print_r('Endereço: ' . $_POST['endereco']);
+  // Validação básica (adicione mais validações conforme necessário)
+  if (empty($email) || empty($senha)) {
+    echo "Por favor, preencha todos os campos.";
+  } else {
+    // Consulta ao banco de dados (ajuste a consulta para sua estrutura)
+    $sql = "SELECT * FROM usuarios WHERE email='$email' AND senha='$senha'";
+    $result = $conexao->query($sql);
 
-    include_once('config.php');
-
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-    $telefone = $_POST['telefone'];
-    $sexo = $_POST['genero'];
-    $data_nasc = $_POST['data_nascimento'];
-    $endereco = $_POST['endereco'];
-
-    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,telefone,sexo,data_nasc,endereco) 
-    VALUES ('$nome','$senha','$email','$telefone','$sexo','$data_nasc','$endereco')");
-
-    header('Location: login.php');
+    if ($result->num_rows > 0) {
+      // Login válido, redireciona para a página adm.php
+      header("Location: produtos.php");
+    } else {
+      echo "Email ou senha inválidos.";
+    }
+  }
 }
-
-?>
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +36,7 @@ if(isset($_POST['submit']))
 <body>
     <header class="cabecalho">
         <div class="fiotao">
-            <a href="index.html">voltar</a>
+            <a href="index.php">voltar</a>
             <img src="img/individuo.png" alt="" class="cab_img">
             <h1 class="cab_tit">individeo gamer
             </h1>
@@ -64,15 +46,14 @@ if(isset($_POST['submit']))
         </header>
     <div id="div2f"><br>
     <fieldset id="borda"><br>
-    <legend id="title">antes de comprar,<br>primeiro<br><b>VAMOS LOGAR</b></legend>
-    <label>insira seu email</label><br>
-    <input type="text" placeholder="seu email"><br>
-    <label>insira sua senha</label><br>
-    <input type="text" placeholder="sua senha"><br>
-    <label>tudo pronto? então envie para gente</label><br>
-    <a href="form3.php"><button>enviar</button></a><br>
-    </fieldset><br>
-    </div>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    Email: <input type="email" name="email" required>
+    Senha: <input type="password" name="senha" required>
+    <br>
+    
+    <button type="submit" class="botao-enviar">entrar</button>
+                <a href="produtos.php"><button></button></a><br>
+</div>
     <div id="div3">
         |Luis Gabriel C. Ph.|n°14|<br>|Arthur Bertolini|n°4|<br>|Adrian Phellipe S Rhoden|n°2|<br>|3° dev. sist.|colegio prof. victorio|<font color="gray"> por favor me ajuda</font>
         </div>

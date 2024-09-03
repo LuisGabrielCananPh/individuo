@@ -1,40 +1,38 @@
 <?php
-$dbHost = 'Localhost';
-    $dbUsername = 'root';
-    $dbPassword = 'escola';
-    $dbName = 'projeto pc';
-   
-    $conexao = new mysqli($dbHost,$dbUsername,$dbPassword,$dbName);
 
-?>
-<?php
 
 if(isset($_POST['submit']))
 {
     // print_r('Nome: ' . $_POST['nome']);
     // print_r('<br>');
-    // print_r('Email: ' . $_POST['email']);
-    // print_r('<br>');
     // print_r('Telefone: ' . $_POST['telefone']);
     // print_r('<br>');
-    // print_r('Sexo: ' . $_POST['genero']);
+    // print_r('cep: ' . $_POST['cep']);
+    // print_r('<br>');
+    // print_r('cpf: ' . $_POST['cpf']);
     // print_r('<br>');
     // print_r('Data de nascimento: ' . $_POST['data_nascimento']);
+    // print_r('<br>');
+    // print_r('Email: ' . $_POST['email']);
+    // print_r('<br>');
+    // print_r('Sexo: ' . $_POST['genero']);
     // print_r('<br>');
     // print_r('Endereço: ' . $_POST['endereco']);
 
     include_once('config.php');
 
     $nome = $_POST['nome'];
+    $telefone = $_POST['telefone'];
+    $cep = $_POST['cep'];
+    $cpf = $_POST['cpf'];
+    $data_nasc = $_POST['data_nascimento'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-    $telefone = $_POST['telefone'];
     $sexo = $_POST['genero'];
-    $data_nasc = $_POST['data_nascimento'];
     $endereco = $_POST['endereco'];
 
     $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,telefone,sexo,data_nasc,endereco) 
-    VALUES ('$nome','$senha','$email','$telefone','$sexo','$data_nasc','$endereco')");
+    VALUES ('$nome','$telefone','$cep ','$cpf ','$data_nasc','$email ','$senha','$sexo','$endereco')");
 
     header('Location: login.php');
 }
@@ -74,10 +72,15 @@ if(isset($_POST['submit']))
             
                 <a href=form3.php>
                     <div id="div2c" >
-                        <p><br>quer entrar como anonimo?<br>clique aqui para apenas entrar<br></p>
+                        <p><br>quer cadastrar um produto?<br>clique aqui para registrar<br></p>
                     </div>
                 </a>
             </div>
+            <div id="div2">
+                <a href=ofertas.php>
+                    <div id="div2a" >
+                    <P><br>veja as ofertas?<br>obtenha produtos que estão em oferta<br></P>
+                </div> </a>
         </td>
         <td>
             <div id="divcapi">

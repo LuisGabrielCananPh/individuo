@@ -30,6 +30,38 @@ if(isset($_POST['submit']))
     header('Location: login.php');
 }
 
+
+?>
+<?php
+class adicionarProduto{
+
+}
+?>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $gabinete = $_POST["gabinete"];
+    $fans = $_POST["fans"];
+    $placavideo = $_POST["placaVideo"];
+    $processador = $_POST["processador"];
+    $memoriaRam = $_POST["memoriaRam"];
+    $armazenamento = $_POST["armazenamento"];
+    $fonte = $_POST["fonte"];
+
+    // Move o arquivo de imagem para o diretório de uploads
+    if (move_uploaded_file()) {
+        $sql = "INSERT INTO pc_cart (gabinete, fans, placaVideo, processador, memoriaRam, armazenamento, fonte) VALUES ('$gabinete','$fans','$placavideo','$processador','$memoriaRam','$armazenamento','$fonte')";
+
+        if ($conn->query($sql) === TRUE) {
+        $sql = "INSERT INTO carrinho ()";
+            echo "Produto adicionado";
+        } else {
+            echo "Erro: " . $sql . "<br>" . $conn->error;
+        }
+    } else {
+        echo "Desculpe, houve um erro";
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +97,7 @@ if(isset($_POST['submit']))
             </Div>
             <Div id="opcoes">
                 <div id="itens">
-                gabinete <select>
+                gabinete <select name="gabinet">
                     <option>
                         thermaltake
                     </option>
@@ -82,7 +114,7 @@ if(isset($_POST['submit']))
                         PCYES       
                     </option>
                     </select><br><br>
-                <i>fans</i><select>
+                <i>fans</i><select name="fans">
                     <option>
                         PCYES
                     </option>
@@ -94,7 +126,7 @@ if(isset($_POST['submit']))
                     </option>
                     </select></div><br>
                 <div id="itens">
-                placa de video <select>
+                placa de video <select name="placaVideo">
                                 <option>
                                     nvidia series rtx10
                                     ou
@@ -117,7 +149,7 @@ if(isset($_POST['submit']))
                                 </option>
                     </select></div><br>
                 <div id="itens">
-                processador <select>
+                processador <select name="processador">
                     <option>
                         intel core i3
                      </option>
@@ -132,7 +164,7 @@ if(isset($_POST['submit']))
                     </option>
                     </select></div><br>
                 <div id="itens">
-                memoria ram <select>
+                memoria ram <select name="memoriaRam">
                     <option>
                         kfb DDR4
                     </option>
@@ -144,7 +176,7 @@ if(isset($_POST['submit']))
                     </option>
                     </select></div><br>
                 <div id="itens">
-                armazenamento <select>
+                armazenamento <select name="armazenamento">
                     <option>
                         SSD NVME
                     </option>
@@ -153,7 +185,7 @@ if(isset($_POST['submit']))
                     </option>
                     </select></div><br>
                 <div id="itens">
-                fonte <select>
+                fonte <select name="fonte">
                     <option>
                        corsair HX1000i 
                     </option>
@@ -168,6 +200,8 @@ if(isset($_POST['submit']))
             </td>
         </tr>
     </table>
+   
+</form>
 
 </div> 
 <div id="div3">

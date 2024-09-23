@@ -1,36 +1,47 @@
 <?php
-class produto {
-    private $id;
-    private $nome;
-    private $preco;
+session_start();
 
-    public function __construct($id,$nome,$preco){
-        $this->id = $id;
-        $this->nome = $nome;
-        $this->preco = $preco;
+// Função para adicionar produto ao carrinho
+function addToCart($productId, $quantity) {
+    if(isset($_SESSION['cart'][$productId])) {
+        $_SESSION['cart'][$productId] += $quantity;
+    } else {
+        $_SESSION['cart'][$productId] = $quantity;
     }
+}
 
-    public function getId(){
-        return $this->id;
+// Função para remover produto do carrinho
+function removeFromCart($productId) {
+    if(isset($_SESSION['cart'][$productId])) {
+        unset($_SESSION['cart'][$productId]);
     }
+}
 
-    public function getNome(){
-        return $this->nome;
-    } 
-
-    public function getPreco(){
-        return $this->preco;
+// Função para exibir o carrinho
+function displayCart() {
+    if(!empty($_SESSION['cart'])) {
+        echo "<table>";
+        echo "<tr><th>Produto</th><th>Quantidade</th></tr>";
+        foreach($_SESSION['cart'] as $productId => $quantity) {
+            echo "<tr><td>$productId</td><td>$quantity</td></tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "Seu carrinho está vazio.";
     }
 }
 ?>
+
 <?php
-require_once 'classes/Produto.php';
-require_once 'classes/Carrinho.php';
+require_once 'pc.php';
+/*require_once 'classes/monitor.php';
+require_once 'classes/teclado.php';
+require_once 'classes/Carrinho.php';*/
 
 //criando alguns produtos
-$produto1 = new Produto(1,"Produto 1",10.00);
-$produto2 = new Produto(1,"Produto 2",20.00);
-$produto3 = new Produto(1,"Produto 3",30.00);
+$produto1 = new Produto(1,"pc",10.00);
+$produto2 = new Produto(1,"monitor",20.00);
+$produto3 = new Produto(1,"teclado",30.00);
 
 $carrinho = new Carrinho();
 $carrinho->adicionarProduto($produto1);
@@ -66,6 +77,7 @@ class Carrinho {
         $total = 0;
         foreach ($this->itens as $item){
             $total += $item->getPreco();
+            
         }
         return $total;
     }
@@ -90,18 +102,33 @@ class Carrinho {
         <P class="cab_slogan">bem vindo
         </P>
         </div>
-    </header>
-    <table id="tab">
-        <tr id="tr">
-            <td>
-            <div id="div2">
-
-            <button type="submit" class="botao-enviar">pagar</button>
-                <a href="pag.php"><button></button></a><br>
-            </div>
     <div id="div3">
         |Luis Gabriel C. Ph.|n°14|<br>|Arthur Bertolini|n°4|<br>|Adrian Phellipe S Rhoden|n°2|<br>|3° dev. sist.|colegio prof. victorio|<font color="gray"> por favor me ajuda</font>
         </div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<link rel="stylesheet" href="style.css">
+    <h1>Produtos</h1>
+    <form method="post" action="carrinho.php">
+        <div>
+            <label for="produto1">Produto 1</label>
+            <input type="hidden" name="produto_id" value="1">
+            <input type="number" name="quantidade" value="1" min="1">
+            <button type="submit">Adicionar ao Carrinho</button>
+        </div>
+    </form>
+
+    <h2>Seu Carrinho</h2>
+    <?php include 'carrinho.php'; ?>
 
 </body>
 </html>

@@ -96,6 +96,12 @@ if(isset($_POST['submit']))
             </td>
         
     </tr>
+    <form method="post" action="adicionar_ao_carrinho.php">
+    <input type="hidden" name="produto_id" value="1">
+    <input type="number" name="quantidade" value="1" min="1">
+    <button type="submit">Adicionar ao Carrinho</button>
+</form>
+
     </table> 
 <div id="div3">
     |Luis Gabriel C. Ph.|n°14|<br>|Arthur Bertolini|n°4|<br>|Adrian Phellipe S Rhoden|n°2|<br>|3° dev. sist.|colegio prof. victorio|<font color="gray"> por favor me ajuda</font>

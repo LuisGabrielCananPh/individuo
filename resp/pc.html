@@ -135,6 +135,28 @@
             </td>
         </tr>
     </table>
+    <form method="post" action="carrinho.php">
+        <input type="hidden" name="produto_id" value="1">
+        <input type="number" name="quantidade" value="1" min="1">
+        <button type="submit">carrinho</button>
+    </form>
+    <meta charset="UTF-8">
+    <title>Carrinho de Compras</title>
+</head>
+<body>
+<link rel="stylesheet" href="style.css">
+    <h1>Produtos</h1>
+    <form method="post" action="carrinho.php">
+        <div>
+            <label for="produto1">Produto 1</label>
+            <input type="hidden" name="produto_id" value="1">
+            <input type="number" name="quantidade" value="1" min="1">
+            <button type="submit">Adicionar ao Carrinho</button>
+        </div>
+    </form>
+
+    <h2>Seu Carrinho</h2>
+    <?php include 'carrinho.php'; ?>
 
 </div> 
 <div id="div3">

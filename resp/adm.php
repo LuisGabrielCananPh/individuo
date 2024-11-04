@@ -23,6 +23,7 @@
     <a href="form3.php"><button>Cadastrar produto</button></a>
     <a href="cardapio.html"><button>visualizar Produtos</button></a>
     <a href="colab.html"><button>Colaboradores</button></a>
+    <a href="edit.php"><button>editor de clientes</button></a>
 
 
         

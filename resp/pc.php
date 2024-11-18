@@ -129,22 +129,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 placa de video <select name="placaVideo">
                                 <option>
                                     nvidia series rtx10
-                                    ou
+                                <option>    
                                     amd  series RX500
+                               </option>
                                 </option>
                                 <option>
                                     nvidia series rtx20
-                                    ou
+                                    
                                     amd series RX500
                                 </option>
                                 <option>
                                     nvidia rtx30
-                                    ou 
+                                    
                                     amd series rx6000
                                 </option>
                                 <option>
                                     nvidia rtx40
-                                          ou
                                        amd seris rx7000
                                 </option>
                     </select></div><br>
@@ -158,9 +158,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                      </option>
                     <option>
                         intel core i7
-                     </option>
-                     <option>
+                      </option>
                        intel core i9
+                    </option>
+                    <option>
+                    amd ryzen 3
+                    </option>
+                    <option>
+                    amd ryzen 5
+                    </option>
+                    <option>
+                    amd ryzen 7
+                    </option>
+                    <option>
+                    amd ryzen 9
+                    </option>
+
+                    <option>
+                    </option>
+
+                    <option>
                     </option>
                     </select></div><br>
                 <div id="itens">

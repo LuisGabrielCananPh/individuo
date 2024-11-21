@@ -50,7 +50,7 @@ if(isset($_POST['submit']))
 <body>
     <header class="cabecalho">
     <div class="fiotao">
-        <img src="img/individuo.png" alt="" class="cab_img">
+        <img src="img/individuorework.png" alt="" class="cab_img">
         <h1 class="cab_tit">INDIVIDEO GAMER </h1>
         <P class="cab_slogan">bem vindo
         </P>

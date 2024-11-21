@@ -9,7 +9,7 @@
 
 body{
     background-color : var(--cor-de-fundo);
-    background: url(img/background.jpg);
+    background: url(img/groundback.png);
     background-size:cover;
     background-repeat:no-repeat;
    

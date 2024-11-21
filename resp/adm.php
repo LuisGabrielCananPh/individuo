@@ -8,7 +8,6 @@
     <title>contato</title>
 </head>
 <body>
-    
     <header>
         <h1> Administrador</h1>
         <nav>
@@ -20,7 +19,6 @@
         </nav>
        
     </header>
-
     <section class="contato">
     <a href="form3.php"><button>Cadastrar produto</button></a>
     <a href="cardapio.html"><button>visualizar Produtos</button></a>

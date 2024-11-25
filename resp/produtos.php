@@ -45,13 +45,39 @@
                     <img src="img/teclado.png" id="produto">
                     </td>
                 <td id="pro">        
-                    <a href="headset.html">
+                    <a href="headset.">
                     <font color="white">HEADSET</font><br>
                     <img src="img/headset.jpg" id="produto">
                     </td>
                     <td id="div2g">        
                         <a href="carrinho.php"><button id="divgb">carrinho</button></a>
                         </td>
+                        <?php
+/* include_once('config.php');
+
+
+Preparando a query SQL para selecionar os dados
+$sql = "SELECT nome, tipo, marca, FROM produtos";
+$result = $conexao->query($sql);
+
+if ($result->num_rows > 0) {
+    // Saída dos dados de cada linha
+    while($row = $result->fetch_assoc()) {
+      
+      echo "<div class='card'>";
+      echo "<div class='card-header'>  " . $row["nome"] . "</div>";
+      echo "<div class='p'> <img src='" . $row["imagem"] . "' alt='Imagem'><br>" . "</div>";
+      echo '<a href="colab.php"><button>LER</button></a>';
+  
+      echo "</div>";  
+        
+    }
+} else {
+    echo "0 resultados";
+}
+
+$conexao->close();
+*/?>
             </div>
         </td>
             </tr>

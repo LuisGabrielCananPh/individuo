@@ -8,17 +8,19 @@
     <title>contato</title>
 </head>
 <body>
+<font color="lime">
     <header>
         <h1> Administrador</h1>
         <nav>
             <ul>
-                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.php">HOME</a></li>
               
                 
               </ul>
         </nav>
        
     </header>
+
     <section class="contato">
     <a href="form3.php"><button>Cadastrar produto</button></a>
     <a href="cardapio.html"><button>visualizar Produtos</button></a>
@@ -31,7 +33,8 @@
     </section>
     <footer>
         <p>&copy;2023 Todos os  direitos reservados.</p>
+        |Luis Gabriel C. Ph.|n°14|<br>|Arthur Bertolini|n°4|<br>|Adrian Phellipe S Rhoden|n°2|<br>|3° dev. sist.|colegio prof. victorio|
     </footer>
-   
+</font>
 </body>
 </html>

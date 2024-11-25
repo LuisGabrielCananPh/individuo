@@ -1,40 +1,40 @@
 <?php
-include_once('config.php');
+// Configurações de conexão com o banco de dados
+$servername = "localhost";
+$username = "root";
+$password = "esccola";
+$dbname = "projeto_pc";
 
-if (!empty($_GET['email'])) {
-    $email = mysqli_real_escape_string($conexao, $_GET['email']);
+// Criação da conexão
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Prepare the SELECT query
-    $sqlSelect = "SELECT * FROM clientes WHERE email=?";
-    $stmtSelect = $conexao->prepare($sqlSelect);
-    $stmtSelect->bind_param("s", $email);
-
-    // Execute the SELECT query
-    if ($stmtSelect->execute()) {
-        $result = $stmtSelect->get_result();
-
-        if ($result->num_rows > 0) {
-            // Prepare the DELETE query
-            $sqlDelete = "DELETE FROM clientes WHERE email=?";
-            $stmtDelete = $conexao->prepare($sqlDelete);
-            $stmtDelete->bind_param("s", $email);
-
-            // Execute the DELETE query
-            if ($stmtDelete->execute()) {
-                echo "Cliente deletado com sucesso!";
-            } else {
-                echo "Erro ao deletar cliente: " . $stmtDelete->error;
-            }
-        } else {
-            echo "Cliente não encontrado.";
-        }
-    } else {
-        echo "Erro ao executar a consulta SELECT: " . $stmtSelect->error;
-    }
-
-    // Close statements
-    $stmtSelect->close();
-    $stmtDelete->close();
+// Verificação da conexão
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
 }
 
-header('Location: listacliente.php');
+// Função para excluir um usuário
+function excluirUsuario($usuario_id) {
+    global $conn;
+    
+    $sql = "DELETE FROM usuarios WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $usuario_id);
+    
+    if ($stmt->execute()) {
+        echo "Usuário excluído com sucesso.";
+    } else {
+        echo "Erro ao excluir usuário: " . $stmt->error;
+    }
+    
+    $stmt->close();
+}
+
+// Exemplo de uso
+$usuario_id = 1; // ID do usuário a ser excluído
+
+excluirUsuario($usuario_id);
+
+// Fechando a conexão
+$conn->close();
+?>

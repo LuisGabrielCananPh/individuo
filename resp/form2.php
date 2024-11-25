@@ -12,15 +12,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Por favor, preencha todos os campos.";
   } else {
     // Consulta ao banco de dados (ajuste a consulta para sua estrutura)
-    $sql = "SELECT * FROM usuarios WHERE email='$email' AND senha='$senha'";
+    $sql = "SELECT * FROM usuarios WHERE email='$email' AND senha='$senha' AND tipo=tipo";
     $result = $conexao->query($sql);
-
+    
     if ($result->num_rows > 0) {
-      // Login válido, redireciona para a página adm.php
-      header("Location: produtos.php");
-    } else {
+      $row = $result->fetch_assoc();
+      if ($row['tipo'] == 1){
+        // Login válido, redireciona para a página adm.php
+        header("Location: adm.php");
+      }else{ 
+        header("Location: produtos.php");
+      }
+    }else{
       echo "Email ou senha inválidos.";
     }
+    
+  
   }
 }
 ?>

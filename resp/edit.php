@@ -1,45 +1,45 @@
 <?php
-include_once('config.php');
+// Configurações de conexão com o banco de dados
+$servername = "localhost";
+$username = "root";
+$password = "escola";
+$dbname = "projeto_pc";
+// Criação da conexão
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Verifica se o parâmetro 'email' foi enviado via GET
-if (isset($_GET['email'])) {
-    // Sanitiza o email para evitar injeção de SQL
-    $email = mysqli_real_escape_string($conexao, $_GET['email']);
-
-    // Prepara a consulta SQL utilizando prepared statements
-    $sql = "SELECT * FROM clientes WHERE email=?";
-    $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("", $email);
-
-    // Executa a consulta
-    if ($stmt->execute()) {
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            // Obtém os dados do usuário
-            $user_data = $result->fetch_assoc();
-
-            // Atribui os valores aos campos do formulário
-            $nome = $user_data['nome'];
-            $email = $user_data['email'];
-            // ... outros campos ...
-        } else {
-            echo "Usuário não encontrado.";
-            exit;
-        }
-    } else {
-        echo "Erro ao executar a consulta: " . $stmt->error;
-        exit;
-    }
-
-    // Fecha o statement
-    $stmt->close();
-} else {
-    header('Location: listacliente.php');
-    exit;
+// Verificação da conexão
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
 }
-?>
 
+// Função para editar um usuário
+function editarUsuario($usuario_id, $novo_nome, $novo_email, $novo_tipo) {
+    global $conn;
+    
+    $sql = "UPDATE usuarios SET nome = ?, email = ?, tipo = ? WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssi", $novo_nome, $novo_email, $novo_tipo, $usuario_id);
+    
+    if ($stmt->execute()) {
+        echo "Usuário atualizado com sucesso.";
+    } else {
+        echo "Erro ao atualizar usuário: " . $stmt->error;
+    }
+    
+    $stmt->close();
+}
+
+// Exemplo de uso
+$usuario_id = 1; // ID do usuário a ser atualizado
+$novo_nome = "Novo Nome";
+$novo_email = "novoemail@example.com";
+$novo_tipo = "usuario_comum";
+
+editarUsuario($usuario_id, $novo_nome, $novo_email, $novo_tipo);
+
+// Fechando a conexão
+$conn->close();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,6 +57,16 @@ if (isset($_GET['email'])) {
             background-size: 600px;
              background-repeat: no-repeat;
              background-position-x: center;
+             background-color:black;
+        }
+        fieldset{
+            background-color: #333;
+            border: 5px;
+            border-style:solid;
+            border-color: rgb(0, 255, 0);
+        }
+        title{
+            color:rgb(0, 255, 0);
         }
         h1{
             text-align: center;
@@ -93,10 +103,14 @@ if (isset($_GET['email'])) {
             background-color: #435dd1;
         }
         header{
-    background-color: palevioletred;
-    padding: 10px 0;
-    text-align: center;
-    }
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
+            border: 5px;
+            border-style:solid;
+            border-color: rgb(0, 255, 0);
+    
+        }
 
     nav ul{
     list-style: none;
@@ -117,7 +131,7 @@ if (isset($_GET['email'])) {
 </head>
 <body>
     <header>
-        <h1>INDIVIDEO</h1>
+        <font color=lime><h1>INDIVIDEO</h1>
         <nav>
             <ul>
                 <li><a href="index.html">HOME</a></li>
@@ -136,8 +150,20 @@ if (isset($_GET['email'])) {
             <fieldset>
                 <legend><b>Editar Cliente</b></legend>
                 <br>
-                <label for="nome">Nome:</label>
+        <label for="id">id:</label>
+        <input type="number" id="id" name="id" required>
+
+        <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
+
+        <label for="email">cpf:</label>
+        <input type="number" id="cpf" name="cpf" required>
+
+        <label for="email">data de nascimento:</label>
+        <input type="nember" id="datanasc" name="cpf" required>
+
+        <label for="email">cep:</label>
+        <input type="number" id="cep" name="cep" required>
 
         <label for="email">E-mail:</label>
         <input type="email" id="email" name="email" required>
@@ -145,22 +171,7 @@ if (isset($_GET['email'])) {
         <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" required>
 
-        <label for="telefone">Telefone:</label>
-        <input type="tel" id="telefone" name="telefone" required>
 
-        <label for="endereco">Endereço:</label>
-        <input type="text" id="endereco" name="endereco" required>
-
-        <label for="cidade">Cidade:</label>
-        <input type="text" id="cidade" name="cidade" required>
-
-        <label for="estado">Estado:</label>
-        <select id="estado" name="estado" required>
-            <option value="" disabled selected>Selecione o estado</option>
-            <!-- Inserir opções de estados aqui -->
-            <option value="PR">Paraná</option>
-            <option value="RJ">Rio de Janeiro</option>
-            <option value="MG">Minas Gerais</option>
         </select>
         <label for="tipo">tipo:</label>
         <select id="tipo" name="tipo" required>
@@ -169,12 +180,10 @@ if (isset($_GET['email'])) {
             <option value="1">1</option>
            
         </select>
-
         <br><br>
-				<input type="hidden" name="email" value=<?php echo $email;?>>
                 <input type="submit" name="update" id="submit">
             </fieldset>
         </form>
     </div>
-
+    </font>
 </html>
